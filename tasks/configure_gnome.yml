@@ -1,0 +1,9 @@
+---
+- name: Configure default GNOME settings for all users.
+  copy:
+    src: files/01-custom_gnome
+    dest: /etc/dconf/db/local.d
+
+- name: Rebuild dconf.
+  command: dconf update
+  changed_when: False

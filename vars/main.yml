@@ -1,0 +1,66 @@
+---
+hostname: rico-fedora{{ ansible_distribution_major_version }}
+username: rico
+
+users:
+  - username: rico
+    password: $6$0sJr/cnsSGoVElyi$sZb/JiKvs0kkl2HxmCnZ4VSMAqh9/v.iRXbzdKGt121RckwIhp1rm/3DH7LFddaK7fUPBiIkkU2eJX7HfvIr2/
+    full_name: Rico Sharp
+    groups: wheel
+
+ruby_gem: "export GEM_HOME=$HOME/.gem"
+
+keys:
+  - https://dl.google.com/linux/linux_signing_key.pub
+  - https://packages.microsoft.com/keys/microsoft.asc
+  - https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
+
+dnf_installed_packages:
+  - "@development-tools"
+  - ansible
+  - cmake
+  - code
+  - cowsay
+  - elfutils-libelf-devel
+  - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+  - gcc-c++
+  - gnome-shell-extension-dash-to-dock
+  - gnome-tweaks
+  - libpcap-devel
+  - libvirt
+  - make
+  - moby-engine
+  - piper
+  - pv
+  - python3-devel
+  - redhat-rpm-config
+  - ruby
+  - ruby-devel
+  - screenfetch
+  - steam
+  - syncthing
+  - telnet
+  - ubridge
+  - vagrant
+  - virt-manager
+  - vim-enhanced
+  - vlc
+  - wireshark
+  - zlib-devel
+
+dnf_removed_packages:
+  - gnome-boxes
+  - gnome-calendar
+  - cheese
+  - gnome-clocks
+  - gnome-contacts
+  - gnome-maps
+  - gnome-photos
+  - rhythmbox
+  - totem
+  - gnome-weather
+
+pip_installed_packages:
+  - gns3-server
+  - gns3-gui
+  - pyqt5

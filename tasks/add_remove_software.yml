@@ -1,0 +1,27 @@
+---
+- name: Remove unused packages.
+  dnf: name="{{ dnf_removed_packages }}" state=absent
+
+- name: Install required packages.
+  dnf: name="{{ dnf_installed_packages }}" state=present
+
+- name: Install GNS3.
+  import_tasks: tasks/install_gns3.yml
+
+- name: Install Jekyll.
+  import_tasks: tasks/install_jekyll.yml
+
+- name: Allow syncthing through firewall
+  firewalld:
+    service: syncthing
+    state: enabled
+    permanent: yes
+  notify: restart firewalld
+
+# - name: Enable syncthing
+#   service:
+#       name: syncthing
+#       state: started
+#       enabled: yes
+#       scope: user
+#   become_user: "{{ username }}"

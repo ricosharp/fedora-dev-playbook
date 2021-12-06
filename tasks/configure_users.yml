@@ -1,0 +1,9 @@
+---
+- name: Add users.
+  user:
+    name: "{{ item.username }}"
+    password: "{{ item.password }}"
+    comment: "{{ item.full_name }}"
+    groups: "{{ item.groups }}"
+    append: yes
+  loop: "{{ users }}"

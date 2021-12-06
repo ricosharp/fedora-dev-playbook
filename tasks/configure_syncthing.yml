@@ -1,0 +1,17 @@
+---
+# This task is no longer called and included in add_remove_software.yml
+
+- name: Allow syncthing through firewall
+  firewalld:
+    service: syncthing
+    state: enabled
+    permanent: yes
+  notify: restart firewalld
+
+- name: Enable syncthing
+  service:
+      name: syncthing
+      state: started
+      enabled: yes
+      scope: user
+  become_user: "{{  username  }}"

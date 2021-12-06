@@ -1,0 +1,5 @@
+---
+- name: Set environment settings for Jekyll.
+  lineinfile:
+    path: /etc/skel/.bashrc
+    line: "{{  ruby_gem  }}"

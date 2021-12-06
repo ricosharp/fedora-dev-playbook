@@ -1,0 +1,33 @@
+---
+- name: Install packages from pip.
+  pip: name="{{ pip_installed_packages }}" state=present
+  
+- name: Check if dynamips exists.
+  stat:
+    path: /usr/local/bin/dynamips
+  register: dynamips
+  
+- name: Download dynamips if not installed.
+  git:
+    repo: https://github.com/GNS3/dynamips.git
+    dest: /tmp/dynamips
+  when: dynamips.stat.exists == false
+  
+- name: Install dynamips if not installed.
+  command: "{{ item }} chdir=/tmp/dynamips"
+  loop:
+    - /usr/bin/cmake .
+    - /usr/bin/make install
+  when: dynamips.stat.exists == false
+  
+- name: Add user to docker and wireshark group.
+  user:
+    name: "{{  username  }}"
+    groups: docker,wireshark
+    append: yes
+
+- name: Start docker.
+  service:
+    name: docker
+    state: started
+    enabled: yes

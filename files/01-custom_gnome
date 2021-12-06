@@ -1,0 +1,15 @@
+# Add minimize, maximize, and close buttons to windows.
+[org/gnome/desktop/wm/preferences]
+button-layout="appmenu:minimize,maximize,close"
+
+# Configure favorite apps.
+[org/gnome/shell]
+favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'virt-manager.desktop', 'gns3.desktop', 'org.gnome.Screenshot.desktop', 'org.gnome.gedit.desktop', 'steam.desktop', 'discord.desktop']
+
+# Enable dash-to-dock.
+[org/gnome/shell]
+enabled-extensions=['dash-to-dock@micxgx.gmail.com']
+
+# Reset Activities menu.
+[org/gnome/shell]
+app-picker-layout=['']

@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+  become: yes
+  vars_files:
+    - vars/main.yml
+
+  handlers:
+  - import_tasks: handlers/main.yml
+
+  tasks:
+    - name: Set system hostname.
+      hostname: name="{{  hostname  }}"
+      
+    - name: Add additional repos.
+      import_tasks: tasks/add_repos.yml
+
+    - name: Add and remove software.
+      import_tasks: tasks/add_remove_software.yml
+
+    - name: Configure GNOME.
+      import_tasks: tasks/configure_gnome.yml
+
+    - name: Configure users.
+      import_tasks: tasks/configure_users.yml
