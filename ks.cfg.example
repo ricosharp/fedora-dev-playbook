@@ -24,13 +24,13 @@ git config --system --unset http.sslVerify
 %end
 
 # Run the Setup Agent on first boot
-firstboot --enable
+firstboot --disable
 
 # Generated using Blivet version 3.4.2
-ignoredisk --only-use=nvme0n1
-autopart
+ignoredisk --only-use=nvme0n1|sda|vda
+autopart --type=btrfs
 # Partition clearing information
-clearpart --none --initlabel
+clearpart --linux
 
 # System timezone
 timezone America/New_York --utc
