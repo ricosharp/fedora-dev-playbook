@@ -30,6 +30,7 @@ dnf_installed_packages:
   - libvirt
   - make
   - moby-engine
+  - needs-restarting
   - piper
   - pv
   - python3-devel
