@@ -21,6 +21,7 @@ dnf_installed_packages:
   - cmake
   - code
   - cowsay
+  - dnf-utils
   - elfutils-libelf-devel
   - https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
   - gcc-c++
@@ -30,7 +31,6 @@ dnf_installed_packages:
   - libvirt
   - make
   - moby-engine
-  - needs-restarting
   - piper
   - pv
   - python3-devel
