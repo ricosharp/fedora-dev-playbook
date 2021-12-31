@@ -27,6 +27,7 @@ dnf_installed_packages:
   - gcc-c++
   - gnome-shell-extension-dash-to-dock
   - gnome-tweaks
+  - iperf
   - libpcap-devel
   - libvirt
   - make
