@@ -32,6 +32,7 @@ dnf_installed_packages:
   - libvirt
   - make
   - moby-engine
+  - nmap
   - piper
   - pv
   - python3-devel
